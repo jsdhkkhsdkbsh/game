@@ -76,7 +76,7 @@
         }
         cube.onclick = function(){
             boxs[steps].style.backgroundImage = "none";
-            let randNum = Math.random() + 17;
+            let randNum = Math.random() * 6;
             let roundNum = Math.round(randNum);
             steps = steps + roundNum;
             alert("иди на " + roundNum + (" на клетку ") + steps);
