@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> типо монополия </title>
+    <link rel="stylesheet" href="style.css"></link>
+</head>
+<body>
+    <div class="boom"></div>
+<div class = "content"> 
+    <h4> Score: <span class="score"></span></h4>
+    <img src="dice.png" class="btn">
+
+    <!--верх-->
+    <div class="boxs firstBox" style="margin-left: 20px;">start</div>
+    <div class="boxs" style="margin-left:130px;">1</div>
+    <div class="boxs" style="margin-left:240px;">2</div>
+    <div class="boxs zlodeyded" style="margin-left:350px;">3</div>
+    <div class="boxs" style="margin-left:460px;">4</div>
+    <div class="boxs" style="margin-left:570px;">5</div>
+    <div class="boxs ball" style="margin-left:680px;">6</div>
+    <div class="boxs" style="margin-left:790px;">7</div>
+    <div class="boxs" style="margin-left:900px;">8</div>
+    <div class="boxs zloyniga" style="margin-left:1010px;">9</div>
+    <div class="boxs" style="margin-left:1120px;">10</div>
+    <div class="boxs" style="margin-left:1230px;">11</div>
+    <div class="boxs fredy" style="margin-left:1340px;">12</div>
+
+    <!--право-->
+    <div class="boxs" style="margin-left:1340px; margin-top: 110px;">13</div>
+    <div class="boxs putin" style="margin-left:1340px; margin-top: 220px;">14</div>
+    <div class="boxs" style="margin-left:1340px; margin-top: 330px;">15</div>
+
+    <!--низ-->
+    <div class="boxs gopnik" style="margin-left:1340px; margin-top: 440px;">16</div>
+    <div class="boxs" style="margin-left:1230px; margin-top: 440px;">17</div>
+    <div class="boxs" style="margin-left:1120px; margin-top: 440px;">18</div>
+    <div class="boxs comic" style="margin-left:1010px; margin-top: 440px;">19</div>
+    <div class="boxs" style="margin-left:900px; margin-top: 440px;">20</div>
+    <div class="boxs" style="margin-left:790px; margin-top: 440px;">21</div>
+    <div class="boxs" style="margin-left:680px; margin-top: 440px;">22</div>
+    <div class="boxs guardian" style="margin-left:570px; margin-top: 440px;">23</div>
+    <div class="boxs" style="margin-left:460px; margin-top: 440px;">24</div>
+    <div class="boxs" style="margin-left:350px; margin-top: 440px;">25</div>
+    <div class="boxs tusa" style="margin-left:240px; margin-top: 440px;">26</div>
+    <div class="boxs" style="margin-left:130px; margin-top: 440px;">27</div>
+    <div class="boxs" style="margin-left:20px; margin-top: 440px;">28</div>
+
+    <!-- лево-->
+    <div class="boxs bomb" style="margin-left:20px; margin-top: 330px;">29</div>
+    <div class="boxs" style="margin-left:20px; margin-top: 220px;">30</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs none" style="margin-left:20px; margin-top: 220px;">31</div>
+    <div class="boxs" style="margin-left:20px; margin-top: 110px;">finish</div>
+</div>
+    <script type="text/javascript">
+        let cube = document.querySelector(".btn");
+        let boxs = document.querySelectorAll(".boxs");
+        let first = document.querySelector(".firstBox");
+        let content = document.querySelector(".content");
+        let boom = document.querySelector(".boom");
+        let steps = 0;
+        let score = 200;
+        let scores = document.querySelector(".score");
+        let points = document.querySelector(".points");
+        let scorePoints = function(points){
+            score = score + points;
+            scores.innerHTML = score;
+        }
+        cube.onclick = function(){
+            boxs[steps].style.backgroundImage = "none";
+            let randNum = Math.random() + 17;
+            let roundNum = Math.round(randNum);
+            steps = steps + roundNum;
+            alert("иди на " + roundNum + (" на клетку ") + steps);
+            boxs[steps].style.backgroundImage = "url(sprite.png)";
+            boxs[steps].style.backgroundSize = "100% 100%";
+            if(steps == 0){
+                scorePoints(0);
+            }
+            if(steps > 0){
+                scorePoints(10);
+            }
+            if(steps == 3){
+                alert ("ты кто такой? иди отсюда");
+                steps = steps - 1;
+                boxs[3].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+                scorePoints(- 20)
+            }
+            if(steps == 6){
+                alert ("вы получили 100 очков");
+                score = score + 100;
+                scores.innerHTML = score;
+                boxs[6].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 9){
+                alert ("йоу с какого района!?");
+                steps = steps - 4;
+                boxs[9].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 12){
+                alert ("вы испугались и убежали");
+                steps = steps - 12;
+                boxs[12].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 14){
+                alert ("голосуй за меня)");
+                steps = steps + 32;
+                boxs[14].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 16){
+                alert ("братииш есть позвонить?");
+                steps = steps - 1;
+                score = score - 50;
+                scores.innerHTML = score;
+                boxs[16].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 19){
+                alert ("ВНИМАНИЕ АНЕКДОТ: В ДОМ ПРИСТАРЕЛЫХ ПРИШЁЛ УРАГАН, Я ПОНЯЛ ЧТО ТАКОЕ БАБКИ НА ВЕТЕР))))))))) ААХАХАХХАХХАХАХХАХАХХАХХАХАХАХАХХАХА)");
+                steps = steps + 1;
+                boxs[19].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 23){
+                alert ("заплати, тогда я тебя пропущу");
+                steps = steps + 1;
+                score = score - 50;
+                scores.innerHTML = score;
+                boxs[23].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 26){
+                alert ("вы знатно потусили, и очутились не понятно где");
+                steps = steps - 26;
+                score = score - 500;
+                scores.innerHTML = score;
+                boxs[26].style.backgroundImage = "";
+                boxs[steps].style.backgroundImage = "url(sprite.png)";
+                boxs[steps].style.backgroundSize = "100% 100%";
+            }
+            if(steps == 29){
+                alert ("капец всему)")
+                content.style.display = "none";
+                boom.style.display = "block";
+            }
+            if(steps >= 30){
+                alert ("молодец");
+                content.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

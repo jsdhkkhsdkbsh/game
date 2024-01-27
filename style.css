@@ -1,0 +1,66 @@
+.boxs{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: green;
+    border: solid;
+}
+.btn{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+}
+.firstBox{
+    background-image: url("sprite.png");
+    background-size: 100% 100%;
+}
+.zlodeyded{
+    background-image: url("ded.png");
+    background-size: 100% 100%;
+}
+.zloyniga{
+    background-image: url("niga.png");
+    background-size: 100% 100%;
+}
+.ball{
+    background-image: url("ball.png");
+    background-size: 100% 100%;
+}
+.fredy{
+    background-image: url("fredy.png");
+    background-size: 100% 100%;
+}
+.putin{
+    background-image: url("putin.png");
+    background-size: 100% 100%;
+}
+.gopnik{
+    background-image: url("gopnik.png");
+    background-size: 100% 100%;
+}
+.comic{
+    background-image: url("comic.png");
+    background-size: 100% 100%;
+}
+.bomb{
+    background-image: url("bomb.png");
+    background-size: 100% 100%;
+}
+.boom{
+    background-image: url("boom.png");
+    background-size: 100% 100%;
+    width: 1500px;
+    height: 700px;
+    display: none;
+}
+.guardian{
+    background-image: url("guardian.png");
+    background-size: 100% 100%;
+}
+.tusa{
+    background-image: url("tusa.png");
+    background-size: 100% 100%;
+}
+.none{
+    display: none;
+}
